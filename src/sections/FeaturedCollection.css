@@ -1,0 +1,169 @@
+.featured {
+  padding: 6rem 2rem;
+  background: var(--lavender-light);
+  overflow: hidden;
+}
+
+.featured__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.featured__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--purple-mid);
+  margin-bottom: 1rem;
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featured-card {
+  border-radius: 28px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(61, 26, 110, 0.15);
+}
+
+.featured-card__inner {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+.featured-card__bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.featured-card:hover .featured-card__bg {
+  transform: scale(1.04);
+}
+
+.featured-card__circle {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 1px solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.featured-card__circle--2 {
+  width: 500px;
+  height: 500px;
+}
+
+.featured-card__deco {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.featured-card__figure {
+  position: absolute;
+  right: 2rem;
+  bottom: 0;
+  width: 140px;
+  height: 240px;
+  opacity: 0.4;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.featured-card:hover .featured-card__figure {
+  opacity: 0.6;
+  transform: scale(1.05) translateY(-5px);
+}
+
+.featured-card__figure svg {
+  width: 100%;
+  height: 100%;
+}
+
+.featured-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  color: white;
+}
+
+.featured-card__season {
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.featured-card__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.featured-card__subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1rem;
+}
+
+.featured-card__meta {
+  margin-bottom: 1.3rem;
+}
+
+.featured-card__pieces {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 1px;
+}
+
+.featured-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.6rem;
+  border: 1.5px solid;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 800px) {
+  .featured__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card__inner {
+    height: 380px;
+  }
+}

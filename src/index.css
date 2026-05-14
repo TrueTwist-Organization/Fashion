@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #030303;
+    color: #f5f0e8;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #030303;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #c8a45c;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  .gold-btn {
+    @apply inline-flex items-center gap-2 bg-gold text-dark font-semibold text-sm tracking-widest uppercase px-8 py-4 transition-all duration-300 hover:bg-gold-light hover:scale-105;
+    box-shadow: 0 0 0 rgba(200, 164, 92, 0);
+  }
+
+  .gold-btn:hover {
+    box-shadow: 0 8px 32px rgba(200, 164, 92, 0.35);
+  }
+
+  .outline-btn {
+    @apply inline-flex items-center gap-2 border border-gold/50 text-gold font-medium text-sm tracking-widest uppercase px-8 py-4 transition-all duration-300 hover:bg-gold hover:text-dark hover:border-gold;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #c8a45c 50%, transparent 100%);
+  }
+}
+
+/* ─── Gradient text ─────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #f5f0e8 0%, #c8a45c 50%, #f5f0e8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ─── Marquee ───────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollRev 28s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeScrollRev {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* ─── Float ─────────────────────────────────── */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ─── Star glow ─────────────────────────────── */
+.star-glow {
+  color: #c8a45c;
+  text-shadow: 0 0 8px rgba(200, 164, 92, 0.7);
+}
+
+/* ─── Category card float bob ───────────────── */
+@keyframes catFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.cat-float-1 {
+  animation: catFloat 5.5s ease-in-out infinite;
+}
+
+.cat-float-2 {
+  animation: catFloat 6.2s ease-in-out infinite 0.8s;
+}
+
+.cat-float-3 {
+  animation: catFloat 5.0s ease-in-out infinite 1.6s;
+}
+
+/* ─── Category card animated border ─────────── */
+@keyframes borderRotate {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cat-glow-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  padding: 1.5px;
+  background: linear-gradient(270deg, transparent, rgba(200, 164, 92, 0.6), transparent, rgba(200, 164, 92, 0.4), transparent);
+  background-size: 400% 400%;
+  animation: borderRotate 4s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.group:hover .cat-glow-border {
+  opacity: 1;
+}
+
+/* ─── Featured Products scroll ──────────────── */
+@keyframes featuredScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
+
+/* ─── Mobile Menu Animations ──────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
